@@ -6,12 +6,18 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.iyam.mysuitmediatest.R
+import com.iyam.mysuitmediatest.databinding.ActivityThirdScreenBinding
 
 class ThirdScreenActivity : AppCompatActivity() {
+
+    private val binding: ActivityThirdScreenBinding by lazy {
+        ActivityThirdScreenBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_third_screen)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v, insets ->
@@ -25,6 +31,13 @@ class ThirdScreenActivity : AppCompatActivity() {
                 systemBars.bottom
             )
             insets
+        }
+        setOnClickListener()
+    }
+
+    private fun setOnClickListener() {
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
         }
     }
 }

@@ -1,17 +1,26 @@
 package com.iyam.mysuitmediatest.presentation.secondscreen
 
+import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.iyam.mysuitmediatest.R
+import com.iyam.mysuitmediatest.databinding.ActivitySecondScreenBinding
+import com.iyam.mysuitmediatest.presentation.thirdscreen.ThirdScreenActivity
 
 class SecondScreenActivity : AppCompatActivity() {
+
+    private val binding: ActivitySecondScreenBinding by lazy {
+        ActivitySecondScreenBinding.inflate(layoutInflater)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_second_screen)
+        setContentView(binding.root)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v, insets ->
@@ -25,6 +34,38 @@ class SecondScreenActivity : AppCompatActivity() {
                 systemBars.bottom
             )
             insets
+        }
+        setClickListener()
+        setGreetingName()
+    }
+
+    private fun setGreetingName() {
+        val username = intent.getStringExtra(EXTRA_NAME)
+        binding.tvUserName.text = username
+    }
+
+    private fun setClickListener() {
+        binding.btnChoose.setOnClickListener {
+            navigateToThirdScreen()
+        }
+        binding.toolbar.setNavigationOnClickListener {
+            onBackPressed()
+        }
+    }
+
+    private fun navigateToThirdScreen() {
+        val intent = Intent(this, ThirdScreenActivity::class.java).apply {
+            flags = Intent.FLAG_ACTIVITY_SINGLE_TOP or Intent.FLAG_ACTIVITY_CLEAR_TOP
+        }
+        startActivity(intent)
+    }
+
+    companion object {
+        const val EXTRA_NAME = "EXTRA_NAME"
+        fun startActivity(context: Context, name: String) {
+            val intent = Intent(context, SecondScreenActivity::class.java)
+            intent.putExtra(EXTRA_NAME, name)
+            context.startActivity(intent)
         }
     }
 }
