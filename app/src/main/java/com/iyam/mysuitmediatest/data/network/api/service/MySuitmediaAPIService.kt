@@ -9,7 +9,6 @@ import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 import java.util.concurrent.TimeUnit
 
-
 /*
 Hi, Code Enthusiast!
 https://github.com/yudiatmoko
