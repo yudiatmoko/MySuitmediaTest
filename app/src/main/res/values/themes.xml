@@ -8,6 +8,6 @@
     <style name="Theme.MySuitmediaTest" parent="Base.Theme.MySuitmediaTest" />
     <style name="toolbar_text">
         <item name="android:fontFamily">@font/montserrat_bold</item>
-        <item name="android:textSize">22sp</item>
+        <item name="android:textSize">20sp</item>
     </style>
 </resources>

@@ -1,4 +1,4 @@
-package com.iyam.mysuitmediatest.presentation.firstscreen
+package com.iyam.mysuitmediatest.presentation.secondscreen
 
 import android.os.Bundle
 import androidx.activity.enableEdgeToEdge
@@ -7,11 +7,11 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import com.iyam.mysuitmediatest.R
 
-class MainActivity : AppCompatActivity() {
+class SecondScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_second_screen)
         ViewCompat.setOnApplyWindowInsetsListener(
             findViewById(R.id.main)
         ) { v, insets ->
