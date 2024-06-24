@@ -12,4 +12,5 @@
     <string name="third_screen_title">Third Screen</string>
     <string name="is_palindrome">Palindrome</string>
     <string name="not_palindrome">Not Palindrome</string>
+    <string name="this_field_is_required">This field is required</string>
 </resources>

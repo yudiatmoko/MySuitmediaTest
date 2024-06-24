@@ -1,8 +1,7 @@
 package com.iyam.mysuitmediatest.data.network.api.model
 
-
-import com.google.gson.annotations.SerializedName
 import androidx.annotation.Keep
+import com.google.gson.annotations.SerializedName
 import com.iyam.mysuitmediatest.model.User
 
 @Keep
@@ -24,7 +23,7 @@ fun UserItemResponse.toUser() = User(
     firstName = this.firstName.orEmpty(),
     lastName = this.lastName.orEmpty(),
     email = this.email.orEmpty(),
-    avatar = this.avatar.orEmpty(),
+    avatar = this.avatar.orEmpty()
 )
 
 fun Collection<UserItemResponse>.toUserList() = this.map {
