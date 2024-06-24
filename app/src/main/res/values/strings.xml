@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MySuitmediaTest</string>
+    <string name="name_title">Name</string>
+    <string name="palindrome_title">Palindrome</string>
+    <string name="check_title">Check</string>
+    <string name="next_title">Next</string>
+    <string name="second_screen_title">Second Screen</string>
+</resources>
