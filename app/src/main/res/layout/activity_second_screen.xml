@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".presentation.secondscreen.SecondScreenActivity">
@@ -30,6 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar">
 
         <TextView
+            android:id="@+id/tv_welcome"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_regular"
@@ -38,6 +40,7 @@
             android:textSize="14sp" />
 
         <TextView
+            android:id="@+id/tv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:fontFamily="@font/montserrat_bold"
@@ -60,10 +63,10 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:layout_margin="18dp"
-        android:id="@+id/btn_check"
+        android:id="@+id/btn_choose"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_margin="18dp"
         android:background="@drawable/rounded_corner"
         android:fontFamily="@font/montserrat_bold"
         android:text="@string/choose_user_title"

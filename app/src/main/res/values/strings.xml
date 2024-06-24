@@ -10,4 +10,6 @@
     <string name="selected_user_name_title">Selected User Name</string>
     <string name="welcome_title">Welcome</string>
     <string name="third_screen_title">Third Screen</string>
+    <string name="is_palindrome">Palindrome</string>
+    <string name="not_palindrome">Not Palindrome</string>
 </resources>

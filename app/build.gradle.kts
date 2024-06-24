@@ -45,13 +45,13 @@ android {
     flavorDimensions += "env"
     productFlavors {
         create("production") {
-            buildConfigField("String", "BASE_URL", "\"https://gostudy.up.railway.app/api/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/api/\"")
         }
         create("integration") {
-            buildConfigField("String", "BASE_URL", "\"https://gostudy.up.railway.app/api/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/api/\"")
         }
         create("mock") {
-            buildConfigField("String", "BASE_URL", "\"https://gostudy.up.railway.app/api/v1/\"")
+            buildConfigField("String", "BASE_URL", "\"https://reqres.in/api/\"")
         }
     }
 }
