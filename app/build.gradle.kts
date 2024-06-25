@@ -111,4 +111,9 @@ dependencies {
     releaseImplementation("com.github.chuckerteam.chucker:library-no-op:4.0.0")
     // koin
     implementation("io.insert-koin:koin-android:3.5.0")
+    // paging
+    implementation("androidx.paging:paging-common-ktx:3.3.0")
+    implementation("androidx.paging:paging-runtime-ktx:3.3.0")
+    // swipe refresh
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
 }
