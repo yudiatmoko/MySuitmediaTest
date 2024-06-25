@@ -23,9 +23,9 @@ class ThirdScreenViewModel(
     val user: LiveData<ResultWrapper<List<User>>>
         get() = _user
 
-    fun getUsers() {
+    fun getUsers(parameters: HashMap<String, String>) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getUsers().collect {
+            repository.getUsers(parameters).collect {
                 _user.postValue(it)
             }
         }

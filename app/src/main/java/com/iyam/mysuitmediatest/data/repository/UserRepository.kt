@@ -14,15 +14,15 @@ https://github.com/yudiatmoko
 */
 
 interface UserRepository {
-    suspend fun getUsers(): Flow<ResultWrapper<List<User>>>
+    suspend fun getUsers(parameters: HashMap<String, String>): Flow<ResultWrapper<List<User>>>
 }
 
 class UserRepositoryImpl(
     private val dataSource: MySuitmediaAPIDataSource
 ) : UserRepository {
-    override suspend fun getUsers(): Flow<ResultWrapper<List<User>>> {
+    override suspend fun getUsers(parameters: HashMap<String, String>): Flow<ResultWrapper<List<User>>> {
         return proceedFlow {
-            dataSource.getUsers().users?.toUserList() ?: emptyList()
+            dataSource.getUsers(parameters).users?.toUserList() ?: emptyList()
         }.catch {
             emit(ResultWrapper.Error(Exception(it)))
         }

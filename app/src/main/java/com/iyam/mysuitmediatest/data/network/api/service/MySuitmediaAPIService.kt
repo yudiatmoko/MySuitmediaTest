@@ -7,6 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.QueryMap
 import java.util.concurrent.TimeUnit
 
 /*
@@ -15,8 +16,10 @@ https://github.com/yudiatmoko
 */
 
 interface MySuitmediaAPIService {
-    @GET("users?page=1&per_page=10")
-    suspend fun getUsers(): UsersResponse
+    @GET("users")
+    suspend fun getUsers(
+        @QueryMap parameters: HashMap<String, String>
+    ): UsersResponse
 
     companion object {
         @JvmStatic

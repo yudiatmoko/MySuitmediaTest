@@ -9,13 +9,13 @@ https://github.com/yudiatmoko
 */
 
 interface MySuitmediaAPIDataSource {
-    suspend fun getUsers(): UsersResponse
+    suspend fun getUsers(parameters: HashMap<String, String>): UsersResponse
 }
 
 class MySuitmediaAPIDataSourceImpl(
     private val service: MySuitmediaAPIService
 ) : MySuitmediaAPIDataSource {
-    override suspend fun getUsers(): UsersResponse {
-        return service.getUsers()
+    override suspend fun getUsers(parameters: HashMap<String, String>): UsersResponse {
+        return service.getUsers(parameters)
     }
 }
