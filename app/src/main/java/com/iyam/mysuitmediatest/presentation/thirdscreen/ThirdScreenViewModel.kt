@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
 import com.iyam.mysuitmediatest.data.repository.UserRepository
 import com.iyam.mysuitmediatest.model.User
 import com.iyam.mysuitmediatest.utils.ResultWrapper
@@ -18,14 +19,15 @@ https://github.com/yudiatmoko
 class ThirdScreenViewModel(
     private val repository: UserRepository
 ) : ViewModel() {
-    private val _user = MutableLiveData<ResultWrapper<List<User>>>()
 
-    val user: LiveData<ResultWrapper<List<User>>>
+    private val _user = MutableLiveData<ResultWrapper<LiveData<PagingData<User>>>>()
+
+    val user: LiveData<ResultWrapper<LiveData<PagingData<User>>>>
         get() = _user
 
-    fun getUsers(parameters: HashMap<String, String>) {
+    fun getUsers() {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.getUsers(parameters).collect {
+            repository.getAllUsers().collect {
                 _user.postValue(it)
             }
         }

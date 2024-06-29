@@ -7,7 +7,7 @@ import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
-import retrofit2.http.QueryMap
+import retrofit2.http.Query
 import java.util.concurrent.TimeUnit
 
 /*
@@ -18,7 +18,8 @@ https://github.com/yudiatmoko
 interface MySuitmediaAPIService {
     @GET("users")
     suspend fun getUsers(
-        @QueryMap parameters: HashMap<String, String>
+        @Query("page") numPage: Int,
+        @Query("per_page") numPerPage: Int
     ): UsersResponse
 
     companion object {
