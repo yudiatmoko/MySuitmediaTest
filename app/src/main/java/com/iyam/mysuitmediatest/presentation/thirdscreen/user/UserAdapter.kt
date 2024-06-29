@@ -2,7 +2,7 @@ package com.iyam.mysuitmediatest.presentation.thirdscreen.user
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import androidx.recyclerview.widget.AsyncListDiffer
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
 import com.iyam.mysuitmediatest.databinding.UserListLayoutBinding
@@ -15,16 +15,11 @@ https://github.com/yudiatmoko
 
 class UserAdapter(
     private val itemClick: (User) -> Unit
-) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    private var selectedPosition: Int = RecyclerView.NO_POSITION
+) : PagingDataAdapter<User, RecyclerView.ViewHolder>(diffCallback) {
 
-    fun getSelectedPosition(): Int {
-        return selectedPosition
-    }
-
-    private val differ = AsyncListDiffer(
-        this,
-        object : DiffUtil.ItemCallback<User>() {
+    companion object {
+        val diffCallback = object :
+            DiffUtil.ItemCallback<User>() {
             override fun areItemsTheSame(
                 oldItem: User,
                 newItem: User
@@ -36,10 +31,16 @@ class UserAdapter(
                 oldItem: User,
                 newItem: User
             ): Boolean {
-                return oldItem.hashCode() == newItem.hashCode()
+                return oldItem.id == newItem.id
             }
         }
-    )
+    }
+
+    private var selectedPosition: Int = RecyclerView.NO_POSITION
+
+    fun getSelectedPosition(): Int {
+        return selectedPosition
+    }
 
     override fun onCreateViewHolder(
         parent: ViewGroup,
@@ -57,26 +58,18 @@ class UserAdapter(
         )
     }
 
-    override fun getItemCount(): Int {
-        return differ.currentList.size
-    }
-
     override fun onBindViewHolder(
         holder: RecyclerView.ViewHolder,
         position: Int
     ) {
         val viewHolder = holder as UserItemViewHolder
-        val category = differ.currentList[position]
-        viewHolder.bind(category)
+        val user = getItem(position)
+        user?.let { viewHolder.bind(it) }
 
         viewHolder.itemView.setOnClickListener {
             selectedPosition = holder.adapterPosition
             notifyDataSetChanged()
-            itemClick(category)
+            user?.let { it1 -> itemClick(it1) }
         }
-    }
-
-    fun setData(data: List<User>) {
-        differ.submitList(data)
     }
 }

@@ -9,6 +9,7 @@ import com.iyam.mysuitmediatest.data.network.api.datasource.MySuitmediaAPIDataSo
 import com.iyam.mysuitmediatest.data.network.api.service.MySuitmediaAPIService
 import com.iyam.mysuitmediatest.data.repository.UserRepository
 import com.iyam.mysuitmediatest.data.repository.UserRepositoryImpl
+import com.iyam.mysuitmediatest.paging.UserPagingSource
 import com.iyam.mysuitmediatest.presentation.firstscreen.MainViewModel
 import com.iyam.mysuitmediatest.presentation.secondscreen.SecondScreenViewModel
 import com.iyam.mysuitmediatest.presentation.thirdscreen.ThirdScreenViewModel
@@ -37,6 +38,7 @@ object AppModules {
 
     private val repositoryModule = module {
         single<UserRepository> { UserRepositoryImpl(get()) }
+        single { UserPagingSource(get()) }
     }
 
     private val viewModelModule = module {

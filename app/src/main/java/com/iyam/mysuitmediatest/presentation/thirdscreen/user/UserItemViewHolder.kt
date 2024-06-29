@@ -17,7 +17,8 @@ class UserItemViewHolder(
     private val binding: UserListLayoutBinding,
     private val onClicked: (User) -> Unit,
     private val adapter: UserAdapter
-) : RecyclerView.ViewHolder(binding.root), ViewHolderBinder<User> {
+) : RecyclerView.ViewHolder(binding.root),
+    ViewHolderBinder<User> {
     override fun bind(item: User) {
         val name = listOf(item.firstName, item.lastName)
         val fullName = name.joinToString(" ")

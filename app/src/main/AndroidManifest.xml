@@ -23,17 +23,6 @@
             android:name=".presentation.secondscreen.SecondScreenActivity"
             android:exported="false" />
         <activity
-            android:name=".presentation.thirdscreen.ThirdActivity"
-            android:exported="false" />
-
-        <service
-            android:name=".MyIntentService"
-            android:exported="false" />
-
-        <activity
-            android:name=".presentation.secondscreen.SecondScreen"
-            android:exported="false" />
-        <activity
             android:name=".presentation.firstscreen.MainActivity"
             android:exported="true">
             <intent-filter>

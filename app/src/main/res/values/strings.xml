@@ -13,4 +13,5 @@
     <string name="is_palindrome">Palindrome</string>
     <string name="not_palindrome">Not Palindrome</string>
     <string name="this_field_is_required">This field is required</string>
+    <string name="no_more_pages">No More Pages</string>
 </resources>
